@@ -1,0 +1,125 @@
+// import of siemens-brand-bootstrap. The order is essential
+
+$font-path: '~@simpl/fonts/dist/fonts/';
+@import '~@simpl/fonts/src/styles/siemens-serif';
+@import '~@simpl/fonts/src/styles/siemens-sans';
+
+$image-path: '~@simpl/siemens-brand-bootstrap/dist/images/';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/variables-dark';
+// @import '~@simpl/siemens-brand-bootstrap/src/styles/variables-light';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/functions';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-colors';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-variables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/variables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/mixins';
+
+@import '~@simpl/siemens-brand-bootstrap/src/styles/reboot';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/images';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/code';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/grid';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/forms';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/buttons';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/transitions';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/dropdown';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/button-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/input-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/custom-forms';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/nav';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/card';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/breadcrumb';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/pagination';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/badge';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/jumbotron';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/alerts';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/progress';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/media';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/list-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/close';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/toasts';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/modals';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tooltip';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/popover';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/carousel';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/spinners';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/utilities';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/print';
+
+@import '~@simpl/siemens-brand-bootstrap/src/styles/sidebar';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/type';
+
+// siemens-brand specific styles
+@import '~@simpl/siemens-brand-bootstrap/src/styles/si-footer';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/si-header';
+
+// siemens-brand-ng specific styles
+@import '~@simpl/siemens-brand-ng/theme';
+@import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-dark';
+// @import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-light';
+
+// setting up siemens-brand-icons
+$font-path: '~@simpl/siemens-brand-icons/dist/fonts';
+@import '~@simpl/siemens-brand-icons/dist/style/simpl-siemens-brand-icons';
+
+// import of siemens-brand-bootstrap. The order is essential
+
+$font-path: '~@simpl/fonts/dist/fonts/';
+@import '~@simpl/fonts/src/styles/siemens-serif';
+@import '~@simpl/fonts/src/styles/siemens-sans';
+
+$image-path: '~@simpl/siemens-brand-bootstrap/dist/images/';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/variables-dark';
+// @import '~@simpl/siemens-brand-bootstrap/src/styles/variables-light';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/functions';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-colors';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-variables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/variables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/mixins';
+
+@import '~@simpl/siemens-brand-bootstrap/src/styles/reboot';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/images';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/code';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/grid';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tables';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/forms';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/buttons';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/transitions';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/dropdown';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/button-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/input-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/custom-forms';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/nav';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/card';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/breadcrumb';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/pagination';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/badge';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/jumbotron';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/alerts';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/progress';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/media';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/list-group';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/close';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/toasts';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/modals';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tooltip';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/popover';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/carousel';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/spinners';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/utilities';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/print';
+
+@import '~@simpl/siemens-brand-bootstrap/src/styles/sidebar';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/type';
+
+// siemens-brand specific styles
+@import '~@simpl/siemens-brand-bootstrap/src/styles/si-footer';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/si-header';
+
+// siemens-brand-ng specific styles
+@import '~@simpl/siemens-brand-ng/theme';
+@import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-dark';
+// @import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-light';
+
+// setting up siemens-brand-icons
+$font-path: '~@simpl/siemens-brand-icons/dist/fonts';
+@import '~@simpl/siemens-brand-icons/dist/style/simpl-siemens-brand-icons';

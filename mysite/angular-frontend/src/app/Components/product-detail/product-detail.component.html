@@ -1,0 +1,34 @@
+<section [class.dark]="dark" [class.light]="!dark">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+            <h2>Manage Product</h2>
+            <img id = 'uploadedImage' src="https://dactelemetrystorageaccnt.blob.core.windows.net/datadiscovery-media/{{product.image_name}}?{{product.sas}}">
+            <div>
+                <div *ngIf="product.id" class="edit-form">
+                  <form enctype="application/json">
+                      <si-form-group label="Name">
+                        <input type="text" id="name" required [(ngModel)]="product.name" name="name" siFormControl>
+                      </si-form-group>
+                      <si-form-group label="Description">
+                        <textarea  id="description" required [(ngModel)]="product.description" name="description" rows = "7" siFormControl></textarea>
+                      </si-form-group>
+                  </form>
+                  <div>
+                    <input type="file" id="image" accept="image/png, image/jpeg" (change)="onFileChange($event)" name="image">  
+                  </div>
+                  <a  routerLink="../../products"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                  <button class="btn btn-outline-danger" (click)="deleteProduct()"><i class="siemens-trash"></i></button>
+                  <button class="btn btn-outline-primary" type="submit" (click)="updateProduct()">Submit</button>
+                </div>
+       
+              
+                <div *ngIf="!product.id">
+                  <br />
+                  <p>Cannot access this Product...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>

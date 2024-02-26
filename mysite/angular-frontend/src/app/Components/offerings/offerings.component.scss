@@ -1,0 +1,53 @@
+@import "../../../styles";
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tooltip';
+
+.card {
+    background-color: $si-deep-blue-85;
+    margin-top: 30px;
+}
+
+button {
+    i {
+        font-size: large;
+    }
+}
+
+.badge {
+    margin-left: 5px;
+}
+
+.badge-pill {
+    font-size: medium;
+}
+
+.card-header{
+    padding-left: 0px;
+    padding-right: 0px;;
+}
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+$grid-gutter-width: 30px !default;
+
+// number of cards per line for each breakpoint
+$cards-per-line: (
+    xs: 1,
+    sm: 1,
+    md: 2,
+    lg: 3,
+    xl: 4
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+    @media (min-width: $breakpoint) {
+        .card-deck .card {
+            flex: 0 0 calc(#{100/map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+        }
+    }
+}

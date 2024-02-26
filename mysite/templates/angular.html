@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Software Data Discovery</title>
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="{%static './img/favicon.png' %}">   
+        
+    </head>
+    {% if request.user.is_authenticated %}
+    <body>
+        <script type="text/javascript">
+            var userGivenName = "{{user.given_name}}";
+            var userFamilyName = "{{user.family_name}}";
+            var userIsStaff = "{{user.is_staff}}";
+        </script>
+        <app-root></app-root>
+        <script src="{% static 'angular-frontend/vendor.js' %}"> </script>
+        <script src="{% static 'angular-frontend/main.js' %}" ></script>
+        <script src="{% static 'angular-frontend/polyfills.js' %}" ></script>
+        <script src="{% static 'angular-frontend/runtime.js' %}" ></script>
+        <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" /> 
+
+    </body>
+    {% else %}
+    <body style="height:100%">
+        <div class="container">
+            <div class = "center">
+                <form>
+                    <h2>MyID</h2>
+                    <input type="button" onclick="window.location.href = '{% url "oidc_authentication_init" %}';" value="Login"/>
+                </form>
+            </div>
+        </div>
+    </body>
+    <style>
+        body {
+            font-family: SiemensSans_Prof;
+        }
+        .container {
+        height: 100vh;
+        position: relative;
+        background-color: #000028;
+        }
+
+        .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background-color: #23233C;
+        border-radius: 4px;
+        }
+
+        form {
+            color: white;
+            margin: 10vh;
+        }
+
+        input{
+            background-color: #00CCCC;
+            color: black;
+            width: 100%;
+            padding: 12px 24px;
+            border: none;
+        }
+
+        input:hover {
+            background-color: #00FFB9;
+            color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" /> 
+    {% endif %}
+</html>

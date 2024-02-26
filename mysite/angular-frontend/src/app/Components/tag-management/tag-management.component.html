@@ -1,0 +1,58 @@
+<button type="button" class="btn btn-outline-primary" (click)="openModal(template)">Manage Tags</button>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title">Manage Tags</h4>
+      <button class="btn btn-primary btn-sm" (click)= "toggleCreate()"> <i class="siemens-options"></i> New Tag </button>
+    </div>
+    <div *ngIf="showCreate">
+      <div style="padding-left: 32px; padding-right: 32px;">
+        <si-form-group label="Name">
+          <input type="text" id="name" required [(ngModel)]="selectedTag.name" name="name" siFormControl>
+        </si-form-group>
+        <si-form-group label="Type">
+          <si-dropdown inputId="type" required [(ngModel)]="selectedTag.type"
+          [dropdownOptions]="tagTypeOptions"></si-dropdown>
+        </si-form-group>
+        
+        <button class="btn btn-success btn-sm" (click)="createTag()"> <i class="siemens-success"></i> Submit</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <si-table [rows]="tags" [loading]="(tags) === []" [bordered]="false" [condensed]="true" [rowsPerPage]="10" [detailSectionExpandedProvider]="showDetailsProvider" id="table-basic" >
+        <siTableColumn key="id" name="ID"></siTableColumn>
+        <siTableColumn key="name" name="Name" [enableClearFilter]="true"></siTableColumn>
+        <siTableColumn key="type" name="Type" ></siTableColumn>
+        <siTableColumn [disableSort]="true" [disableFilter]="true" [widthFactor]="0" [connectWithDetail]="true">
+          <div *siTableCell="let row = row" style="display: flex">
+            <button class="border-0 btn-info" (click)="toggleDetails(row.id)">
+              <span [class.siemens-arrow-down]="!showDetails.has(row.id)" [class.siemens-arrow-up]="showDetails.has(row.id)"></span>
+            </button>
+          </div>
+        </siTableColumn>
+        <pre  *siTableDetailSection="let row = row">
+          <div>
+            <si-form-group label="Name">
+              <input type="text" id="name" required [(ngModel)]="selectedTag.name" name="name" siFormControl>
+            </si-form-group>
+            <si-form-group label="Type">
+              <si-dropdown inputId="type" required [(ngModel)]="selectedTag.type"
+              [dropdownOptions]="tagTypeOptions"></si-dropdown>
+            </si-form-group>
+            <button class="btn btn-success btn-sm" (click)="updateTag(row.id)"> <i class="siemens-success"></i> Submit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteTag(row.id)"> <i class="siemens-trash"></i> Delete</button>
+          </div>
+        </pre>
+        <div no-data>
+          Loading...
+        </div>
+      </si-table>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary"
+        (click)="modalRef.hide()">
+        <span class="siemens-close"></span>
+        Close
+      </button>
+    </div>
+  </ng-template>

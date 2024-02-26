@@ -1,0 +1,53 @@
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="openModal(template)">
+    <span style="white-space: nowrap;">Help</span>
+</button>
+
+  <ng-template #template>
+      <div class="modal-header">
+        <h2 class="modal-title">Help!</h2>
+        <button type="button" class="close close-btn" (click)="modalRef.hide()"></button>
+      </div>
+      <div class="modal-body">
+
+        <h4>Here is some help for you {{userGivenName}}:</h4>
+        <tabset>
+          <tab heading="General">
+            <h6>Portfolio Products</h6>
+            <p> are marketable offerings provided by teams to their stakeholders.<br>
+                <i>Portfolio Products</i> can include multiple <i>Insights</i>. <i>Insights</i> have a clear value definition and stakeholder focus.</p>
+    
+            <h6>Insights</h6>
+            <p>You can check out <i>Insights</i> by discovering them based on their <i>Portfolio Product</i> and by searching name, description, or tags.</p>
+          </tab>
+          <tab heading="Tags">
+            <h6>Tags</h6>
+            <p>Tags provide details to <i>Insights</i> and link them with <i>Portfolio Product</i>. To make sure a user can find the correct <i>Insights</i> of each <i>Portfolio Product</i>, create or add a tag
+              with the name of the product and asign it to the insight. If the product changes its name, simply update the name of the product and the tag.</p>
+    
+            
+            <div class="text-center">
+              <img src="../../../../../static/img/ProductInsightLink.png" style="max-height: 10vh; padding-bottom: 2vh;">
+            </div>
+            
+            Every Tag has an associated type to add meaning. The following types are defined:
+            <ul>
+              <li><b>Product:</b> Gives the Product Cluster of the Insight</li>
+              <li><b>Department:</b> Target Department or Stakeholder</li>
+              <li><b>CreatorTeam:</b> Team that was involved in the creation</li>
+              <li><b>ServiceType:</b> Type of insight that is being offered, Dashboard, Notification, Consulting, Self-service,...</li>
+              <li><b>Technology:</b> Technology used for hosting the Insight (e.g. Tableau, PowerBI)</li>
+              <li><b>Value:</b> Does the Insight improve Efficiency (How), Effectivity (What), or Opportunity?</li>
+              <li><b>Phase:</b> The phase of software engineering the insight is aimed at: [Define, Design, Implement, Test, Deploy, Operate] </li>
+              <li><b>Role:</b> The role key stakeholder addressed in the insight</li>
+            </ul>
+          </tab>
+        </tabset>
+
+
+
+
+      </div>
+      <div class="modal-footer" style="justify-content: start;color: yellow;">
+          <div>Note : Incase of any Feedback or Suggestion, Please Contact <a href="mailto:ADV D AA DI FA CTR TE Team Sceptrum BLR <RGINSTSCTRDADSAADFPLTCOSPERFORMANCE@internal.siemens.com>">Team Sceptrum</a></div> 
+      </div> 
+  </ng-template>

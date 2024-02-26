@@ -1,0 +1,15 @@
+<div class="d-flex flex-column min-vh-100">
+  <app-header></app-header>
+
+  <main [@siRouterFadeAnimation]="getRouteAnimation(route)" class="flex-fill">
+    <router-outlet #route="outlet"></router-outlet>
+  </main>
+
+  <footer class="si-footer si-footer-legal-only">
+    <div class="container">
+      <span class="si-application-name">DI FA Data Discovery</span>
+      <si-copyright></si-copyright>
+      <si-legal-links></si-legal-links>
+    </div>
+  </footer>
+  <div>

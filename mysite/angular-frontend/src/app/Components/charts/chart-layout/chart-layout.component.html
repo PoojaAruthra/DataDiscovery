@@ -1,0 +1,95 @@
+<div class="row justify-items">
+    <div *ngIf="departmentPieData" style="width: 550px;">
+        <mat-card class="shadow p-0" style="width: inherit;height: inherit;" >
+            <div class="panel-header">
+                Overall Department Usage (Top 10)
+            </div>
+            <overall-bar-graph style="width: inherit;height: inherit;" [data]="departmentPieData" [labels]="departmentPieLabels" [chartType]='"pie"'
+            (emitChartClicked)='departmentPieChartClick($event)'></overall-bar-graph>
+        </mat-card>
+    </div>
+    <div *ngIf="teamPieData"  style="width: 550px;">
+        <mat-card class="shadow p-0" style="width: inherit;height: inherit;" >
+            <div class="panel-header">
+                Overall Feature Usage (Top 10)
+            </div>
+            <overall-bar-graph style="width: inherit;height: inherit;" [data]="teamPieData" [labels]="teamPieLabels" [chartType]='"pie"'
+            (emitChartClicked)='teamPieChartClick($event)'></overall-bar-graph>
+        </mat-card>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 50px;">
+    <div class="col-12">
+        <div class="col-12 display-inline">
+            <div class="col-5 display-inline">
+                <div class="col-4 display-inline">
+                    <label class="form-check-label">
+                        Start date :
+                    </label>
+                </div>
+                  <div class="col-8 display-inline">
+                    <input type="text"
+                          placeholder="Start date"
+                          class="form-control"
+                          [maxDate]="maxDate" 
+                          [(ngModel)]="filterInputs.startDate" 
+                          bsDatepicker>
+                  </div>
+            </div>
+            <div class="col-5 display-inline">
+                <div class="col-4 display-inline">
+                    <label class="form-check-label">
+                        End date :
+                    </label>
+                </div>
+                  <div class="col-8 display-inline">
+                    <input type="text"
+                          placeholder="End date"
+                          class="form-control"
+                          [maxDate]="maxDate" 
+                          [minDate]='setMinEndDate()' 
+                          [(ngModel)]="filterInputs.endDate"
+                          bsDatepicker>
+                  </div>
+            </div>
+             <div class="col-2 display-inline">
+                <button (click)="searchInput()" class="btn btn-outline-primary">Search</button>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row justify-items" style="margin-top: 15px;">
+    <div *ngIf='activeUserCountBarGraphData' style="width: 550px;height: 520px;" >
+        <mat-card class="shadow p-0" style="width: inherit;height: inherit;">
+            <div class="panel-header">
+                Active Users Count ( 14 day window )
+            </div>
+        <bar-graph style="width: 550px;height: 450px;" *ngIf='activeUserCountBarGraphData' 
+          [data]="activeUserCountBarGraphData"
+          [xAxisLabel]='"TimeLine"' 
+          [yAxisLabel]='"Number of Active Users"' 
+          [labels]="activeUserBarGraphLabels"
+          [ChartType]='"bar"' 
+          [stacked]='false'>
+        </bar-graph>
+    </mat-card>
+    </div>
+    <div *ngIf='newUserCountBarGraphData' style="width: 550px;height: 520px;">
+        <mat-card class="shadow p-0" style="width: inherit;height: inherit;">
+            <div class="panel-header">
+                New Users Count ( 14 day window )
+            </div>
+        <bar-graph style="width: 550px;height: 450px;" *ngIf='newUserCountBarGraphData' 
+          [data]="newUserCountBarGraphData"
+          [xAxisLabel]='"TimeLine"' 
+          [yAxisLabel]='"Number of New Users"' 
+          [labels]="newUserBarGraphLabels"
+          [ChartType]='"bar"' 
+          [stacked]='false'>
+        </bar-graph>
+    </mat-card>
+    </div>
+</div>

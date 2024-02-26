@@ -1,0 +1,42 @@
+<header>
+  <nav #siHeader="siHeader" [cdkTrapFocus]="siHeader.navbarExpandedOrDropdownOpen" siHeader
+    class="si-header si-header-internet fixed-top" [class.bg-dark]="dark" [class.bg-light]="!dark">
+    <div siHeaderContainer class="container">
+      <a routerLink="/" class="si-header-brand" aria-label="Siemens logo">
+        <si-logo></si-logo>
+      </a>
+      <button class="si-header-toggler" type="button" siHeaderToggler aria-label="Toggle navigation">
+        <span class="siemens-menu"></span>
+      </button>
+      <div class="si-header-collapse" siHeaderCollapse>
+        <div class="si-header-collapse-wrapper">
+          <div class="container">
+            <ul siHeaderMenu class="si-header-nav-main">
+              <li siHeaderItem>
+                <a routerLink="/" hidden></a>
+              </li>
+              <li class="si-header-item" siHeaderItem>
+                <a routerLink="products" siHeaderLink class="si-header-link">Portfolio</a>
+              </li>
+              <li class="si-header-item" siHeaderItem>
+                <a routerLink="insights" siHeaderLink class="si-header-link">Insights</a>
+              </li>
+            </ul>
+            <ul class="si-header-nav-additional">
+              <li siHeaderItem class="si-header-item">
+                <app-help></app-help>
+              </li>
+            </ul>
+            <ul class="si-header-nav-additional">
+              <li siHeaderItem class="si-header-item">
+                <app-user-menu> </app-user-menu>
+                <!-- <span> {{userGivenName}}</span> -->
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

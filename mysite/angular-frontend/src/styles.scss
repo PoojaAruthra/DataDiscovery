@@ -1,0 +1,26 @@
+// Select dark or light theme by commenting out the one you do not want.
+// IMPORTANT: Also adjust the DARK variable in the src/environment/dark file
+$font-path: '~@simpl/fonts/dist/fonts/';
+@import '~@simpl/fonts/src/styles/siemens-serif';
+@import '~@simpl/fonts/src/styles/siemens-sans';
+
+$image-path: '~@simpl/siemens-brand-bootstrap/src/images/';
+@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-brand-bootstrap-dark';
+//@import '~@simpl/siemens-brand-bootstrap/src/styles/siemens-brand-bootstrap-light';
+
+// siemens-brand-ng specific styles
+@import '~@simpl/siemens-brand-ng/theme';
+
+@import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-dark';
+// @import '~@simpl/siemens-brand-ng/ngx-datepicker/ngx-datepicker-light';
+
+// setting up siemens-brand-icons
+$font-path: '~@simpl/siemens-brand-icons/dist/fonts';
+@import '~@simpl/siemens-brand-icons/dist/style/simpl-siemens-brand-icons';
+
+@import '~@simpl/siemens-brand-bootstrap/src/styles/tooltip';
+
+
+main {
+  padding-top: 100px;
+}

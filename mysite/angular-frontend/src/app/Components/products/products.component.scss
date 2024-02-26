@@ -1,0 +1,36 @@
+@import "../../../styles";
+@import '../../../../node_modules/@simpl/siemens-brand-bootstrap/src/styles/card';
+
+
+.card{
+    background-color: $si-deep-blue-85;
+}
+
+
+.box{
+    background-color: $si-deep-blue-55;
+    color: $si-white;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.stage-title{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.stage-title .flat{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#uploadedImage{
+    max-height: 250px;
+    max-width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

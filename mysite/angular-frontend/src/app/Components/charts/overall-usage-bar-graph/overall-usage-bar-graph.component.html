@@ -1,0 +1,16 @@
+<div style="height: inherit; width: inherit;">
+    <div *ngIf="legends.length > 0; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <canvas id="bar-chart-horizontal" class="horizontalBar" baseChart #myChart *ngIf="legends.length > 0"
+        [data]="dataset"
+        [options]="options">
+      </canvas>
+      <button class="btn btn-outline-primary btn-sm float-left" (click)="downloadCsv()">Export All</button>
+   
+    </ng-template>
+    <ng-template #elseBlock>
+      <div class="alert alert-info" role="alert">
+        No records found !!
+      </div>
+    </ng-template>
+</div>

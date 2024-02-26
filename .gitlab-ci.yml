@@ -1,0 +1,32 @@
+image: python:3.9-buster
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  HTTP_PROXY: $CODE_PROXY
+  HTTPS_PROXY: $CODE_PROXY
+  NO_PROXY: 127.0.0.1,localhost,.siemens.de,.siemens.net,.siemens.com,.siemens.io,s3.dualstack.eu-central-1.amazonaws.com
+
+
+stages:          # List of stages for jobs, and their order of execution
+  - test
+
+before_script:
+  - python --version  # For debugging
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - touch /etc/apt/apt.conf.d/proxy.conf
+  - echo "Acquire::http::Proxy \"$HTTP_PROXY\";" > /etc/apt/apt.conf.d/proxy.conf && echo "Acquire::https::Proxy \"$HTTPS_PROXY\";" >> /etc/apt/apt.conf.d/proxy.conf
+  - apt-get update
+  - apt-get install -y unixodbc-dev
+  - pip install -r requirements.txt
+
+
+unit-test:  
+  stage: test
+  script:
+    - pip install -r requirements.txt
+    - python ./mysite/manage.py test
+
+
+

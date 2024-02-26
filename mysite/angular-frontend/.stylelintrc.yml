@@ -1,0 +1,14 @@
+extends:
+  - stylelint-config-sass-guidelines
+ignoreFiles:
+  - dist/**
+rules:
+  declaration-no-important: true
+  max-nesting-depth: null
+  selector-no-qualifying-type: null
+  selector-max-compound-selectors: null
+  order/properties-alphabetical-order: null
+  scss/at-extend-no-missing-placeholder: null
+  selector-pseudo-element-no-unknown:
+    - true
+    - ignorePseudoElements: [ng-deep]

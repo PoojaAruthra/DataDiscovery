@@ -1,0 +1,105 @@
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="openModal(template)">
+  <span style="white-space: nowrap;">Hello, {{userGivenName}}!</span>  
+</button>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h2 class="modal-title">Hello, {{userGivenName}}!</h2>
+      <!-- <button class="btn btn-primary btn-sm" (click)= "toggleCreateTeam()"> <i class="siemens-options"></i> New Team </button>
+      <button class="btn btn-primary btn-sm" (click)= "toggleCreateRole()"> <i class="siemens-options"></i> New Role </button> -->
+    </div>
+    <!-- <div class="modal-body">
+
+      <div *ngIf="showCreateTeam">
+        <h6>Create a new Team:</h6>
+        <si-form-group label="Name">
+          <input type="text" id="name" required [(ngModel)]="createdTeam.name" name="name" siFormControl>
+          <div class="input-group-append">
+            <button class="input-group-text" (click)="createTeam()">
+                <span class="siemens-success"></span>
+            </button>
+        </div>
+        </si-form-group>
+      </div> -->
+
+      <!-- <div *ngIf="showCreateRole">
+        <div style="padding-left: 32px; padding-right: 32px;">
+          <si-form-group label="Team">
+            <si-dropdown inputId="type" [(ngModel)]="createdRole.team"
+              [dropdownOptions]="team_names"
+              ></si-dropdown>
+          </si-form-group>
+          <si-form-group label="Role">
+            <si-dropdown inputId="type" [(ngModel)]="createdRole.type"
+              [dropdownOptions]="roleTypeOptions"></si-dropdown>
+            <div class="input-group-append">
+                <button class="input-group-text btn btn-success" (click)="createRole()">
+                    <span class="siemens-success"></span>
+                </button>
+            </div>  
+          </si-form-group>
+        </div>
+      </div>
+
+      <div>
+        <span class="badge badge-warning float-right m-2"> <i class="siemens-warning"></i>BETA</span>
+        <h6>Define your Roles: </h6>
+        <si-table [rows]="roles" [loading]="(roles) === []" [bordered]="false" [condensed]="true" [rowsPerPage]="10" [detailSectionExpandedProvider]="showDetailsProvider" id="table-basic" >
+          <siTableColumn key="team" name="Team"></siTableColumn>
+          <siTableColumn key="type" name="Role"></siTableColumn>
+          <siTableColumn [disableSort]="true" [disableFilter]="true" [widthFactor]="0" [connectWithDetail]="true">
+            <div *siTableCell="let row = row" style="display: flex">
+              <button class="border-0 btn-info" (click)="toggleDetails(row.id)">
+                <span [class.siemens-arrow-down]="!showDetails.has(row.id)" [class.siemens-arrow-up]="showDetails.has(row.id)"></span>
+              </button>
+            </div>
+          </siTableColumn>
+          <pre  *siTableDetailSection="let row = row">
+            <div>
+              <si-form-group label="Team">
+              <si-dropdown inputId="name" [(ngModel)]="selectedRole.team"
+                [dropdownOptions]="team_names"></si-dropdown>
+              </si-form-group>
+              <si-form-group label="Role">
+                <si-dropdown inputId="type" [(ngModel)]="selectedRole.type"
+                  [dropdownOptions]="roleTypeOptions"></si-dropdown>
+
+                  <div class="input-group-append">
+                    <button class="input-group-text btn btn-success" (click)="updateRole(row.id)">
+                        <span class="siemens-success"></span>
+                    </button>
+                  </div>
+                  <div class="input-group-append">
+                    <button class="input-group-text btn btn-danger" (click)="deleteRole(row.id)">
+                        <span class="siemens-trash"></span>
+                    </button>
+                  </div>
+
+              </si-form-group>
+            </div>
+          </pre>
+          <div no-data>
+            Loading...
+          </div>
+        </si-table>
+      </div>
+      <div>
+        <h6>Manage your Tokens:</h6>
+
+      </div>
+
+    </div> -->
+
+    
+    
+    <div class="modal-footer">
+      <a href="/oidc/logout/">
+        <button class="btn btn-primary">Logout</button>
+      </a>
+      <button class="btn btn-secondary"
+        (click)="modalRef.hide()">
+        <span class="siemens-close"></span>
+        Close
+      </button>
+    </div>
+</ng-template>

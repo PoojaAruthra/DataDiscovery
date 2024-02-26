@@ -1,0 +1,131 @@
+<section [class.dark]="dark" [class.light]="!dark">
+    <div class="container">
+      <div class = "row">
+        <div class="col-sm">
+          <h2>{{portfolioName}} Insights</h2>
+        </div>
+        <div class="col-sm">
+          <img id = 'uploadedImage' src="https://dactelemetrystorageaccnt.blob.core.windows.net/datadiscovery-media/{{offering.image_name}}?{{offering.sas}}">
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col col-md-12">
+            <div>
+              <tabset>
+                <!-- <tab heading="Insight Map">
+
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                </tab> -->
+
+                
+                <!-- <tab heading="Comments">
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                </tab> -->
+                <!-- <tab heading="Recommendation">
+                  <h5>Personalized Recommendation Details</h5>
+                  <si-table [rows]="offering.recommendations" [loading]="offering.recommendations === null" [bordered]="false" [condensed]="true" [rowsPerPage]="10" id="table-basic">
+                    <siTableColumn key="created" name="Created"></siTableColumn>
+                    <siTableColumn key="reason" name="Basis" [enableClearFilter]="true"></siTableColumn>
+                    <siTableColumn key="score" name="Score"></siTableColumn>
+                    <div no-data>
+                      Loading...
+                    </div>
+                  </si-table>
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                </tab> -->
+                <tab heading="Statistics">
+                  <!-- <accordion>
+                    
+                    <accordion-group heading="Usage Statistics" [isOpen]="false" (isOpenChange)="onOpenStatistics()">
+                      <div>
+                        <div style="width: 100%;">
+                          <app-chart-layout [serviceId]="serviceId"></app-chart-layout>
+                        </div>
+                      </div>
+                    </accordion-group>
+                  </accordion> -->
+                  <div style="margin-bottom: 25px;margin-left: 25px;">
+                    <h5>Usage Statistics : </h5>
+                  </div>
+                  <app-chart-layout [serviceId]="serviceId"></app-chart-layout>
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                </tab>
+                <tab heading="Edit">
+                  <div style="margin-bottom: 50px;">
+                    <h5>Data Quality</h5>
+                    <div>
+                      <h5 *ngIf="offering.tag_completeness_score &gt; 0.9">Completeness <span class="badge bg-success"> {{offering.tag_completeness_score | number:'1.1-1'}} </span></h5>
+                      <h5 *ngIf="offering.tag_completeness_score &gt; 0.5 && offering.tag_completeness_score &lt; 0.9">Completeness <span class="badge bg-warning"> {{offering.tag_completeness_score  | number:'1.1-1'}} </span></h5>
+                      <h5 *ngIf="offering.tag_completeness_score &lt; 0.5">Completeness <span class="badge bg-danger"> {{offering.tag_completeness_score  | number:'1.1-1'}} </span></h5>
+                      <ul>
+                      <li *ngFor="let line of splitImprovementString">
+                        {{ line }}
+                      </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div *ngIf="offering.id" class="edit-form">
+                    <div style="flex-direction: column;">
+                        <button class="btn btn-outline-primary" style="align-self: flex-start;" type="submit" (click)="toggleEditOffering()">Edit</button>
+                        <button class="btn btn-outline-danger" style="align-self: flex-end;" (click)="deleteOffering()"><i class="siemens-trash"></i></button>
+                    </div>
+                    <form enctype="application/json">
+                        <si-form-group label="Name">
+                          <input type="text" id="name" required [(ngModel)]="offering.name" name="name" siFormControl [disabled]="disableEdit">
+                        </si-form-group>
+                        <si-form-group label="Description">
+                          <textarea  id="description" required [(ngModel)]="offering.description" name="description" rows = "7" siFormControl [disabled]="disableEdit"></textarea>
+                        </si-form-group>
+                        <si-form-group label="Access URL">
+                          <input type="text" id="access_url" required [(ngModel)]="offering.access_url" name="access_url" siFormControl [disabled]="disableEdit">
+                        </si-form-group>
+                        <si-form-group label="Documentation URL">
+                          <input type="text" id="documentation_url" required [(ngModel)]="offering.documentation_url" name="documentation_url" siFormControl [disabled]="disableEdit">
+                        </si-form-group>
+  
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value=""  [(ngModel)]="offering.is_recommended" name="is_recommended"  id="is_recommended" [disabled]="disableEdit">
+                          <label class="form-check-label" for="is_recommended">
+                              Recommend to Users
+                          </label>
+                        </div>
+                        
+                        <tag-input [(ngModel)]="offering.tags"
+                                   [onlyFromAutocomplete]="true"
+                                   name = "tags"
+                                   [disable]="disableEdit"
+                                   [displayBy]="'name'"
+                                   [identifyBy]="'id'"
+                                   [theme]="'bootstrap'">
+                            <tag-input-dropdown
+                                [autocompleteItems]="tags"
+                                [dynamicUpdate]="true"
+                                [displayBy]="'name'"
+                                [identifyBy]="'id'">
+                                <ng-template let-item="item" let-index="index" style="color: black;">
+                                  {{ item.name }} <small>( {{ item.type }}) </small> 
+                                </ng-template>
+                            </tag-input-dropdown>
+                        </tag-input>
+                    </form>
+                    <div>
+                      <input type="file" id="image" accept="image/png, image/jpeg" (change)="onFileChange($event)" name="image" [disabled]="disableEdit">  
+                    </div>
+                    <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+ 
+                    <app-tag-management></app-tag-management>
+                    <button class="btn btn-outline-primary" type="submit" (click)="updateOffering()" [disabled]="disableEdit">Submit</button>
+                  </div>
+                  <div *ngIf="!offering.id">
+                    <br />
+                    <p>Cannot access this Insight...</p>
+                  </div>  
+                </tab>
+
+              </tabset>              
+            </div>
+        </div>
+    </div>
+  </div>
+</section>

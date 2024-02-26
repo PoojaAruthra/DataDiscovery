@@ -1,0 +1,46 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+          <h2>Portfolio</h2>
+        </div>
+    </div>
+    <p>
+        The Value Domain Data Analytics and Consulting (DAC) provides a number of products to stakeholders along the software value creation process.
+    </p>
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col col-md-12">
+            <div class="card-columns">
+                <ng-container *ngFor="let product of products" >
+                    <div class="card">
+                        <div class="card-header">
+                          <img id = 'uploadedImage' src="https://dactelemetrystorageaccnt.blob.core.windows.net/datadiscovery-media/{{product.image_name}}?{{product.sas}}">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{product.name}}
+                            </h5>
+                            <p class="card-text" style="white-space:pre-wrap;"> {{product.description}}</p>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                          <a (click)="searchServicesForProduct(product.name)"><button class="btn btn-primary"> <i class="siemens-explore"></i> Insights</button></a>
+                            <a routerLink="./{{product.id}}"><button class="btn btn-outline-primary" *ngIf = "userIsStaff"> <i class="siemens-settings"></i></button></a>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="card" *ngIf = "userIsStaff">
+                    <div class="card-body">
+                      <h5 class="card-title">Register a new Portfolio Product</h5>
+                    </div>
+                    <div class="card-footer text-muted text-center">
+                      <a routerLink="../products/create"><button class="btn btn-outline-primary"> <i class="siemens-plus"></i></button></a>
+                    </div>     
+                  </div>
+            </div>
+          </div>
+    </div>
+
+</div>

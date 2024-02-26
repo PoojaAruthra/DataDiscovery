@@ -1,0 +1,72 @@
+<section [class.dark]="dark" [class.light]="!dark">
+  <div class="container">
+     <div class="row">
+      <div class="col col-md-12">
+        <h2>Insights</h2>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="row gy-6">
+          <div class="col-12">
+              <si-form-group label="Search">
+                  <input [(ngModel)]="searchValue" (keydown.enter)="refreshSearch()" id="search" formControlName="search"
+                         siFormControl>
+                  <div class="input-group-append">
+                    <button type="button" class="input-group-text" (click)="refreshSearch()" aria-label="Search">
+                    <span class="siemens-search"></span>
+                    </button>
+                  </div>
+              </si-form-group>
+          </div>
+      </div>
+  </form>
+  </div>
+
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col">
+        <div class="card-deck offerings">
+            <div class="card" *ngFor ="let offering of offerings" >
+              <div class="card-body">
+                <span class ="float-right m-2" *ngIf = "offering.recommendations.length"> <button style="margin-top: -30px; width: 30px; height:50px; padding:0" class="btn btn-warning btn-xs"> <i class="siemens-favorite"></i></button></span>
+                <span class ="float-right m-2" *ngIf = "offering.is_recommended"> <button style="margin-top: -30px; width: 30px; height:50px; padding:0" class="btn btn-warning btn-xs"> <i class="siemens-language"></i></button></span>
+                <h5 class="card-title">{{offering.name}}</h5>
+                <img class="card-img-top" src="https://dactelemetrystorageaccnt.blob.core.windows.net/datadiscovery-media/{{offering.image_name}}?{{offering.sas}}" onerror="this.src='http://127.0.0.1:8000/static/img/MissingImage.png';">
+                <div class="card-header">
+                  <span class="badge badge-primary badge-pill" 
+                  [ngClass] = "tag.type"
+                  [ngStyle] = "{'background-color': getBackgroundColor(tag.type), 'color': getColor(tag.type)}"
+                  *ngFor ="let tag of offering.tags" 
+                  data-toggle="tooltip" tooltip="{{tag.type}}" data-placement="top" title="{{tag.type}}" (click)="clickTagHandler(tag.type, tag.name)">
+                  {{tag.name}}</span>
+              </div>
+
+                <p class="card-text" style="white-space:pre-wrap;">{{offering.description}}</p>
+              </div>
+              <div class="card-footer text-muted text-center">
+                <div *ngIf="(offering.access_url.startsWith('http') || offering.access_url.startsWith('mailto'))">
+                  <a target="_blank" href="{{offering.access_url}}"><button (click)="emitEvent('Access', offering.id)" class="btn btn-primary"> <i class="siemens-link"></i></button></a>
+                  <a target="_blank" href="{{offering.documentation_url}}"> <button (click)="emitEvent('DocumentationAccess', offering.id)" class="btn btn-outline-primary"> <i class="siemens-document"></i></button></a>
+                  <a routerLink="./{{offering.id}}/{{offering.name}}"><button class="btn btn-outline-primary"> <i class="siemens-information"></i></button></a>
+                </div>
+                <div *ngIf="!(offering.access_url.startsWith('http') || offering.access_url.startsWith('mailto'))">
+                  <div>{{offering.access_url}}</div>
+                  <a target="_blank" href="{{offering.documentation_url}}"> <button (click)="emitEvent('DocumentationAccess', offering.id)" class="btn btn-outline-primary"> <i class="siemens-document"></i></button></a>
+                  <a routerLink="./{{offering.id}}/{{offering.name}}"><button class="btn btn-outline-primary"> <i class="siemens-information"></i></button></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" *ngIf = "userIsStaff">
+              <div class="card-body">
+                <h5 class="card-title">Register a new Insight</h5>
+              </div>
+              <div class="card-footer text-muted text-center">
+                <a routerLink="../insights/create"><button class="btn btn-outline-primary"> <i class="siemens-plus"></i></button></a>
+              </div>     
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

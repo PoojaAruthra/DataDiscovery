@@ -1,0 +1,57 @@
+<section [class.dark]="dark" [class.light]="!dark">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+            <h2>Register a new Insight</h2> 
+            <div class="submit-form">
+                <div *ngIf="!submitted">
+                  <si-form-group label="Name">
+                    <input type="text" id="name" required [(ngModel)]="offering.name" name="name" siFormControl>
+                  </si-form-group>
+                  <si-form-group label="Description">
+                    <input type="text" id="description" required [(ngModel)]="offering.description" name="description" siFormControl>
+                  </si-form-group>
+                  <si-form-group label="Access URL">
+                    <input type="text" id="access_url" required [(ngModel)]="offering.access_url" name="access_url" siFormControl>
+                  </si-form-group>
+                  <si-form-group label="Documentation URL">
+                    <input type="text" id="documentation_url" required [(ngModel)]="offering.documentation_url" name="documentation_url" siFormControl>
+                  </si-form-group>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value=""  [(ngModel)]="offering.is_recommended" name="is_recommended"  id="is_recommended">
+                    <label class="form-check-label" for="is_recommended">
+                        Recommend to Users
+                    </label>
+                  </div>
+
+                  <tag-input [(ngModel)]="offering.tags"
+                             [onlyFromAutocomplete]="true"
+                              name = "tags"
+                             [displayBy]="'name'"
+                             [identifyBy]="'id'"
+                             [theme]="'bootstrap'">
+                      <tag-input-dropdown
+                          [autocompleteItems]="tags"
+                          [dynamicUpdate]="true"
+                          [displayBy]="'name'"
+                          [identifyBy]="'id'">
+                          <ng-template let-item="item" let-index="index" style="color: black;">
+                              {{ item.name }} <small>( {{ item.type }}) </small>
+                          </ng-template>
+                      </tag-input-dropdown>
+                  </tag-input>
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                  <app-tag-management> </app-tag-management>
+                  <button (click)="saveOffering()" class="btn btn-outline-primary">Submit</button>
+                </div>
+                <div *ngIf="submitted">
+                  <h4>Insight was submitted successfully!</h4>
+                  <a  routerLink="../../insights"><button class="btn btn-outline-primary"><i class="siemens-arrow-left"></i></button></a>
+                  <button class="btn btn-outline-primary" (click)="newOffering()">Add</button>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+</section>

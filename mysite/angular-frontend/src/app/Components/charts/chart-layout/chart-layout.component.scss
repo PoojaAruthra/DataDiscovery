@@ -1,0 +1,31 @@
+
+.mdl-cell {
+    margin-bottom: 1em
+  }
+
+  .display-inline
+{
+    display: inline-block;
+}
+
+.justify-items {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.panel-header {
+  font-size: 16px;
+  background: #01003E !important;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  padding: 1em;
+  opacity: 0.95;
+  font-weight: bold
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 40%) !important;
+}

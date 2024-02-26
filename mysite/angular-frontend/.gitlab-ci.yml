@@ -1,0 +1,41 @@
+image: node:fermium
+
+variables:
+  SELENIUM_URL: http://selenium__standalone-chrome:4444/wd/hub
+
+test:
+  stage: test
+  services:
+    - selenium/standalone-chrome:90.0-20210517
+  script:
+    - https_proxy=$CODE_PROXY no_proxy=code.siemens.com npm ci
+    - npm run lint
+    - npm run lint:sass
+    - npm run lint:editorconfig
+    - npm run test -- --progress=false --code-coverage
+    - npm run e2e -- --host=$(hostname -i)
+    - npm run build:prod -- --progress=false
+  coverage: '/Statements\s*:\s*(\d+\.?\d+)\%/'
+  artifacts:
+    expire_in: 3h
+    paths:
+      - dist/
+    reports:
+      junit: dist/reports/angular-frontend/test-*.xml
+      cobertura: dist/coverage/angular-frontend/cobertura-coverage.xml
+  tags:
+    - DOCKER
+
+pages:
+  stage: deploy
+  script:
+    - mv dist/angular-frontend public/
+  dependencies:
+    - test
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+  tags:
+    - DOCKER
