@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'data-discovery'
           slot-name: 'datadiscovery-azureslot'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_475D5B954AF34175852F1C5150FC66E5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3EA7B4808C20461D89C6D448C640E225 }}
