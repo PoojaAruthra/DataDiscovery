@@ -202,13 +202,13 @@ if DEBUG:
     OIDC_RP_CLIENT_ID = ClientId
     OIDC_RP_CLIENT_SECRET = Client_Secret
 
-    # OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid-qa.siemens.com/as/authorization.oauth2"
-    # OIDC_OP_TOKEN_ENDPOINT = "https://myid-qa.siemens.com/as/token.oauth2"
-    # OIDC_OP_USER_ENDPOINT = "https://myid-qa.siemens.com/idp/userinfo.openid"
+    OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid-qa.siemens.com/as/authorization.oauth2"
+    OIDC_OP_TOKEN_ENDPOINT = "https://myid-qa.siemens.com/as/token.oauth2"
+    OIDC_OP_USER_ENDPOINT = "https://myid-qa.siemens.com/idp/userinfo.openid"
 
 
-    # OIDC_RP_SIGN_ALGO = 'RS256'
-    # OIDC_OP_JWKS_ENDPOINT = "https://myid-qa.siemens.com/pf/JWKS"
+    OIDC_RP_SIGN_ALGO = 'RS256'
+    OIDC_OP_JWKS_ENDPOINT = "https://myid-qa.siemens.com/pf/JWKS"
     # OIDC_VERIFY_JWT = False
 
     OIDC_RP_SCOPES = 'openid email profile'
@@ -217,13 +217,13 @@ else:
     OIDC_RP_CLIENT_ID = ClientId
     OIDC_RP_CLIENT_SECRET = Client_Secret
 
-    # OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid.siemens.com/as/authorization.oauth2"
-    # OIDC_OP_TOKEN_ENDPOINT = "https://myid.siemens.com/as/token.oauth2"
-    # OIDC_OP_USER_ENDPOINT = "https://myid.siemens.com/idp/userinfo.openid"
+    OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid.siemens.com/as/authorization.oauth2"
+    OIDC_OP_TOKEN_ENDPOINT = "https://myid.siemens.com/as/token.oauth2"
+    OIDC_OP_USER_ENDPOINT = "https://myid.siemens.com/idp/userinfo.openid"
 
-    # OIDC_RP_SIGN_ALGO = 'RS256'
-    # OIDC_OP_JWKS_ENDPOINT = "https://myid.siemens.com/pf/JWKS"
-    # OIDC_RP_SCOPES = 'openid email profile'
+    OIDC_RP_SIGN_ALGO = 'RS256'
+    OIDC_OP_JWKS_ENDPOINT = "https://myid.siemens.com/pf/JWKS"
+    OIDC_RP_SCOPES = 'openid email profile'
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"

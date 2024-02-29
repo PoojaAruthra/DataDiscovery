@@ -5,7 +5,7 @@
       Welcome to Azure Playground!
     </div>
     <div>
-      {% if request.user.is_authenticated %}
+      <!-- {% if request.user.is_authenticated %} -->
         <p>Current user: Email:{{ user.email }} Gid:{{ user.gid }} Given Name: {{user.given_name}} Family Name: {{user.family_name}} Org Code {{user.org_code}}</p>
         <div>
           <form action="/oidc/logout/" method="POST">
@@ -13,12 +13,12 @@
             <input type="submit" value="Logout"/>
           </form>
         </div>
-      {% else %}
+      <!-- {% else %}
       <img src="{% static 'VorlesungClient.PNG' %}">
         <a href="{% url 'oidc_authentication_init' %}">
           Login
         </a>
-      {% endif %}
+      {% endif %} -->
     </div>
   </body>
 </html>

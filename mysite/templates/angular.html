@@ -8,7 +8,7 @@
         <link rel="icon" type="image/x-icon" href="{%static './img/favicon.png' %}">   
         
     </head>
-    {% if request.user.is_authenticated %}
+    <!-- {% if request.user.is_authenticated %} -->
     <body>
         <script type="text/javascript">
             var userGivenName = "{{user.given_name}}";
@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" /> 
 
     </body>
-    {% else %}
+    <!-- {% else %}
     <body style="height:100%">
         <div class="container">
             <div class = "center">
@@ -74,5 +74,5 @@
         }
     </style>
     <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" /> 
-    {% endif %}
+    {% endif %} -->
 </html>
