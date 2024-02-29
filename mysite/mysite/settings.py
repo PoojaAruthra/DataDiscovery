@@ -193,7 +193,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # OIDC Configuration for Siemens QA System
 
 AUTHENTICATION_BACKENDS = [
-    'rest_server.oidc_authentication.MyOIDCAB',
+    # 'rest_server.oidc_authentication.MyOIDCAB',
     #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
 ]
 
