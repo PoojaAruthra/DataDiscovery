@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mozilla_django_oidc',
+    # 'mozilla_django_oidc',
     'rest_framework',
     'rest_server',
     'frontend',
