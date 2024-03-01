@@ -40,7 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY',Secret_key_kv)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  False
+DEBUG =  True
 DB_USER = DBUser_Secret.value
 DB_PASSWORD = DBPass_Secret.value
 
@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_server',
     'frontend',
-    # 'corsheaders'
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -237,7 +237,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
     #     'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
     #     'rest_framework.authentication.SessionAuthentication',
-     ]
+    ]
 }
 
 #Images
