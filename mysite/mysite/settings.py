@@ -194,10 +194,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # OIDC Configuration for Siemens QA System
 
-AUTHENTICATION_BACKENDS = [
-     'rest_server.oidc_authentication.MyOIDCAB',
-     #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#      'rest_server.oidc_authentication.MyOIDCAB',
+#      #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+# ]
 
 
 if DEBUG:
@@ -234,12 +234,12 @@ ALLOW_LOGOUT_GET_METHOD = True
 
 # Rest Framework
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#     ]
+# }
 
 #Images
 MEDIA_URL = "/media/"
