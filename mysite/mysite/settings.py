@@ -44,7 +44,7 @@ DEBUG =  True
 DB_USER = DBUser_Secret.value
 DB_PASSWORD = DBPass_Secret.value
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:4200','https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200','https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net','https://data-discovery-datadiscovery-azureslot.azurewebsites.net']
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_HEADERS = [
     "accept",
