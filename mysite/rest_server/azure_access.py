@@ -11,8 +11,8 @@ credential = DefaultAzureCredential()
 secret_client = SecretClient(vault_url="https://dac-datadiscovery.vault.azure.net/", credential=credential)
 Storage_CONN_STR = secret_client.get_secret("STORAGE-CONN-STR")
 
-print(Storage_CONN_STR.name)
-print(Storage_CONN_STR.value)
+# print(Storage_CONN_STR.name)
+# print(Storage_CONN_STR.value)
 
 connect_str = 'DefaultEndpointsProtocol=https;AccountName=dactelemetrystorageaccnt;AccountKey=yC+FLJxXXWhHOT6P7ua4LpndqM3um3yzIT+jhhnMhnF90U7aIn5hSytLT3tMIAGQTJVdIG0TSJvl+AStVYROiw==;EndpointSuffix=core.windows.net'
 media_container = 'datadiscovery-media'

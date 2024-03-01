@@ -40,11 +40,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY',Secret_key_kv)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  True
+DEBUG =  False
 DB_USER = DBUser_Secret.value
 DB_PASSWORD = DBPass_Secret.value
 
-CSRF_TRUSTED_ORIGINS = ['https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:4200','https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net']
 ALLOWED_HOSTS = ['*']
 
 assert DB_USER !='', 'No SQL User set'
@@ -58,11 +58,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'mozilla_django_oidc',
+    'mozilla_django_oidc',
     'rest_framework',
     'rest_server',
     'frontend',
-    # 'corsheaders'
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -116,7 +116,6 @@ if DEBUG:
             },
         'CONN_MAX_AGE' : 100
     }
-        
     }
 
 else:
