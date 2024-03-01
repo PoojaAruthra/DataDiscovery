@@ -235,9 +235,9 @@ AUTHENTICATION_BACKENDS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
+    #     'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+     ]
 }
 
 #Images
