@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_server',
     'frontend',
-    'corsheaders'
+    # 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -193,52 +193,52 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # OIDC Configuration for Siemens QA System
 
-# AUTHENTICATION_BACKENDS = [
-#      'rest_server.oidc_authentication.MyOIDCAB',
-#      #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+     #'rest_server.oidc_authentication.MyOIDCAB',
+     #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
+]
 
 
-if DEBUG:
-    OIDC_RP_CLIENT_ID = ClientId
-    OIDC_RP_CLIENT_SECRET = Client_Secret
+# if DEBUG:
+#     OIDC_RP_CLIENT_ID = ClientId
+#     OIDC_RP_CLIENT_SECRET = Client_Secret
 
-    OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid-qa.siemens.com/as/authorization.oauth2"
-    OIDC_OP_TOKEN_ENDPOINT = "https://myid-qa.siemens.com/as/token.oauth2"
-    OIDC_OP_USER_ENDPOINT = "https://myid-qa.siemens.com/idp/userinfo.openid"
+#     OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid-qa.siemens.com/as/authorization.oauth2"
+#     OIDC_OP_TOKEN_ENDPOINT = "https://myid-qa.siemens.com/as/token.oauth2"
+#     OIDC_OP_USER_ENDPOINT = "https://myid-qa.siemens.com/idp/userinfo.openid"
 
 
-    OIDC_RP_SIGN_ALGO = 'RS256'
-    OIDC_OP_JWKS_ENDPOINT = "https://myid-qa.siemens.com/pf/JWKS"
-    # OIDC_VERIFY_JWT = False
+#     OIDC_RP_SIGN_ALGO = 'RS256'
+#     OIDC_OP_JWKS_ENDPOINT = "https://myid-qa.siemens.com/pf/JWKS"
+#     # OIDC_VERIFY_JWT = False
 
-    OIDC_RP_SCOPES = 'openid email profile'
+#     OIDC_RP_SCOPES = 'openid email profile'
 
-else:
-    OIDC_RP_CLIENT_ID = ClientId
-    OIDC_RP_CLIENT_SECRET = Client_Secret
+# else:
+#     OIDC_RP_CLIENT_ID = ClientId
+#     OIDC_RP_CLIENT_SECRET = Client_Secret
 
-    OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid.siemens.com/as/authorization.oauth2"
-    OIDC_OP_TOKEN_ENDPOINT = "https://myid.siemens.com/as/token.oauth2"
-    OIDC_OP_USER_ENDPOINT = "https://myid.siemens.com/idp/userinfo.openid"
+#     OIDC_OP_AUTHORIZATION_ENDPOINT = "https://myid.siemens.com/as/authorization.oauth2"
+#     OIDC_OP_TOKEN_ENDPOINT = "https://myid.siemens.com/as/token.oauth2"
+#     OIDC_OP_USER_ENDPOINT = "https://myid.siemens.com/idp/userinfo.openid"
 
-    OIDC_RP_SIGN_ALGO = 'RS256'
-    OIDC_OP_JWKS_ENDPOINT = "https://myid.siemens.com/pf/JWKS"
-    OIDC_RP_SCOPES = 'openid email profile'
+#     OIDC_RP_SIGN_ALGO = 'RS256'
+#     OIDC_OP_JWKS_ENDPOINT = "https://myid.siemens.com/pf/JWKS"
+#     OIDC_RP_SCOPES = 'openid email profile'
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+# LOGIN_REDIRECT_URL = "/"
+# LOGOUT_REDIRECT_URL = "/"
 
-ALLOW_LOGOUT_GET_METHOD = True
+# ALLOW_LOGOUT_GET_METHOD = True
 
 # Rest Framework
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#     ]
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 #Images
 MEDIA_URL = "/media/"
