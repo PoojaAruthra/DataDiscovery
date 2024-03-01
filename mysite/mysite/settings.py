@@ -21,17 +21,13 @@ from azure.keyvault.secrets import SecretClient
 credential = DefaultAzureCredential()
 
 secret_client = SecretClient(vault_url="https://dac-datadiscovery.vault.azure.net/", credential=credential)
-# DBUser_Secret = secret_client.get_secret("DB-Username")
-# DBPass_Secret = secret_client.get_secret("DB-Password")
-# ClientId = secret_client.get_secret("CLIENT-ID")
-# Client_Secret = secret_client.get_secret("CLIENT-SECRET")
-# Secret_key_kv = secret_client.get_secret("SECRET-KEY")
+DBUser_Secret = secret_client.get_secret("DB-Username")
+DBPass_Secret = secret_client.get_secret("DB-Password")
+ClientId = secret_client.get_secret("CLIENT-ID")
+Client_Secret = secret_client.get_secret("CLIENT-SECRET")
+Secret_key_kv = secret_client.get_secret("SECRET-KEY")
 
-DBUser_Secret = "dbadmin"
-DBPass_Secret = "fyHtuk32tds!56gsDDa"
-ClientId = "a9e3a4b4-b3b0-421b-985b-bdc7b3352b02"
-Client_Secret = "0eXCvMgwKi0zdAG5IG"
-Secret_key_kv = "DB6424E3191782B2B6BE1C1B84F8D"
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,11 +41,8 @@ SECRET_KEY = os.getenv('SECRET_KEY',Secret_key_kv)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =  True
-# DB_USER = DBUser_Secret.value
-# DB_PASSWORD = DBPass_Secret.value
-
-DB_USER = DBUser_Secret
-DB_PASSWORD = DBPass_Secret
+DB_USER = DBUser_Secret.value
+DB_PASSWORD = DBPass_Secret.value
 
 CSRF_TRUSTED_ORIGINS = ['https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net']
 ALLOWED_HOSTS = ['*']
