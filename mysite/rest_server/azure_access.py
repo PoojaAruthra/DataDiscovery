@@ -9,7 +9,8 @@ from azure.keyvault.secrets import SecretClient
 credential = DefaultAzureCredential()
 
 secret_client = SecretClient(vault_url="https://dac-datadiscovery.vault.azure.net/", credential=credential)
-Storage_CONN_STR = secret_client.get_secret("STORAGE-CONN-STR")
+#Storage_CONN_STR = secret_client.get_secret("STORAGE-CONN-STR")
+Storage_CONN_STR = "DefaultEndpointsProtocol=https;AccountName=dactelemetrystorageaccnt;AccountKey=yC+FLJxXXWhHOT6P7ua4LpndqM3um3yzIT+jhhnMhnF90U7aIn5hSytLT3tMIAGQTJVdIG0TSJvl+AStVYROiw==;EndpointSuffix=core.windows.net"
 
 print(Storage_CONN_STR.name)
 print(Storage_CONN_STR.value)
