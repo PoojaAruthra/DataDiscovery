@@ -46,17 +46,17 @@ DB_PASSWORD = DBPass_Secret.value
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:4200','https://*.data-discovery.azurewebsites.net','http://*.md2qjyzc', 'https://discovery.dainsights.public.siemens.com', 'https://data-discovery-data-discovery-staging.azurewebsites.net','https://data-discovery-datadiscovery-azureslot.azurewebsites.net']
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
 
 assert DB_USER !='', 'No SQL User set'
 
@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_server',
     'frontend',
-    'corsheaders'
+    # 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +85,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
