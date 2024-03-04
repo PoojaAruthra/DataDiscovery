@@ -36,7 +36,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('oidc/', include('mozilla_django_oidc.urls')),
+    # path('oidc/', include('mozilla_django_oidc.urls')),
     path('api/', include((router.urls, 'myapp'), namespace='api'), name='api'),
     path('', include('frontend.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
