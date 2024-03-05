@@ -5,7 +5,6 @@
       Welcome to Azure Playground!
     </div>
     <div>
-      {% if true %}
         <p>Current user: Email:{{ user.email }} Gid:{{ user.gid }} Given Name: {{user.given_name}} Family Name: {{user.family_name}} Org Code {{user.org_code}}</p>
         <div>
           <form action="/oidc/logout/" method="POST">
