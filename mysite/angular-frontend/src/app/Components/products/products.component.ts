@@ -23,6 +23,7 @@ export class ProductsComponent implements OnInit {
     this.userGivenName = (<any>window)["userGivenName"];
     this.userFamilyName = (<any>window)["userFamilyName"];
     this.userIsStaff = (<any>window)["userIsStaff"] == 'True' ? true : false;
+    console.log(this.userIsStaff, this.userGivenName, this.userFamilyName)
 
   }
 
