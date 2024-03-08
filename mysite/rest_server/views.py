@@ -157,7 +157,7 @@ class setUserData(mixins.ListModelMixin,viewsets.GenericViewSet):
     serializer_class = SiemensUserSerializer
     
     # queryset = SiemensUser.objects.all()
-     print(request.user)
+    #  print(request.user)
     
     def post(self,request):
         print(self.request.user)
