@@ -7,8 +7,8 @@ from rest_framework.views import APIView
 from datetime import datetime, timedelta
 import pytz
 
-from rest_server.models import Service, Tag, Product, Team, Role, Event,SiemensUser
-from rest_server.serializers import StatisticsSerializer, ServiceSerializer, TagSerializer, ProductSerializer, TeamSerializer, RoleSerializer, EventSerializer,SiemensUserSerializer
+from rest_server.models import Service, Tag, Product, Team, Role, Event
+from rest_server.serializers import StatisticsSerializer, ServiceSerializer, TagSerializer, ProductSerializer, TeamSerializer, RoleSerializer, EventSerializer
 from rest_framework import permissions, mixins, viewsets
 from rest_framework.response import Response
 from django.db.models import Q, Max
@@ -153,27 +153,27 @@ class StatisticView(mixins.RetrieveModelMixin, viewsets.ViewSet):
 
         return Response(serializer.data)
 
-class setUserData(mixins.ListModelMixin,viewsets.GenericViewSet):
-    serializer_class = SiemensUserSerializer
+# class setUserData(mixins.ListModelMixin,viewsets.GenericViewSet):
+#     serializer_class = SiemensUserSerializer
     
-    # queryset = SiemensUser.objects.all()
-    #  print(request.user)
+#     # queryset = SiemensUser.objects.all()
+#     #  print(request.user)
     
-    def post(self,request):
-        print(self.request.user)
-        if self.request.user.is_authenticated:
-            queryset = SiemensUser.objects.filter(username = self.request.user.username)
-        else:
-            queryset = SiemensUser.objects.all()
-        print(queryset)
-        return Response(queryset)
+#     def post(self,request):
+#         print(self.request.user)
+#         if self.request.user.is_authenticated:
+#             queryset = SiemensUser.objects.filter(username = self.request.user.username)
+#         else:
+#             queryset = SiemensUser.objects.all()
+#         print(queryset)
+#         return Response(queryset)
 
-    def perform_create(self, serializer):
-        print("aaa")
-        serializer.save(username=self.request.user.username)
+#     def perform_create(self, serializer):
+#         print("aaa")
+#         serializer.save(username=self.request.user.username)
 
-    # def perform_update(self, serializer):
-    #     serializer.save(username=self.request.user.username)
+#     # def perform_update(self, serializer):
+#     #     serializer.save(username=self.request.user.username)
 
 
 
