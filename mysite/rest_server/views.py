@@ -101,7 +101,7 @@ class RoleViewSet(ModelViewSet):
         serializer.save(user=self.request.user)
 
     def get_queryset(self):
-        print(self.request.user)
+        print(self.request.user)    
         if self.request.user.is_authenticated:
             queryset = Role.objects.filter(user = self.request.user)
         else:
@@ -152,33 +152,3 @@ class StatisticView(mixins.RetrieveModelMixin, viewsets.ViewSet):
         serializer = StatisticsSerializer(service)
 
         return Response(serializer.data)
-
-# class setUserData(mixins.ListModelMixin,viewsets.GenericViewSet):
-#     serializer_class = SiemensUserSerializer
-    
-#     # queryset = SiemensUser.objects.all()
-#     #  print(request.user)
-    
-#     def post(self,request):
-#         print(self.request.user)
-#         if self.request.user.is_authenticated:
-#             queryset = SiemensUser.objects.filter(username = self.request.user.username)
-#         else:
-#             queryset = SiemensUser.objects.all()
-#         print(queryset)
-#         return Response(queryset)
-
-#     def perform_create(self, serializer):
-#         print("aaa")
-#         serializer.save(username=self.request.user.username)
-
-#     # def perform_update(self, serializer):
-#     #     serializer.save(username=self.request.user.username)
-
-
-
-
-    
-    
-        
-    
