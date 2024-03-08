@@ -101,7 +101,6 @@ class RoleViewSet(ModelViewSet):
         serializer.save(user=self.request.user)
 
     def get_queryset(self):
-        print(self.request.user)    
         if self.request.user.is_authenticated:
             queryset = Role.objects.filter(user = self.request.user)
         else:
