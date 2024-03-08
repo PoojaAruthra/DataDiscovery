@@ -10,8 +10,8 @@
     </head>
     <body>
         <script type="text/javascript">
-            var userGivenName = "{{user.given_name}}";
-            var userFamilyName = "{{user.family_name}}";
+            var userGivenName = "{{request.user.given_name}}";
+            var userFamilyName = "{{request.user.family_name}}";
             var userIsStaff = "{{user.is_staff}}";
         </script>
         <app-root></app-root>
