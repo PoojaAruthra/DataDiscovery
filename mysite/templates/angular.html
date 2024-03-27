@@ -6,12 +6,12 @@
         {% load static %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="{%static './img/favicon.png' %}">   
-        
+
     </head>
     <body>
         <script type="text/javascript">
-            var userGivenName = "{{user.given_name}}";
-            var userFamilyName = "{{user.family_name}}";
+            var userGivenName = "{{request.user.given_name}}";
+            var userFamilyName = "{{request.user.family_name}}";
             var userIsStaff = "{{user.is_staff}}";
         </script>
         <app-root></app-root>
@@ -19,7 +19,6 @@
         <script src="{% static 'angular-frontend/main.js' %}" ></script>
         <script src="{% static 'angular-frontend/polyfills.js' %}" ></script>
         <script src="{% static 'angular-frontend/runtime.js' %}" ></script>
-        <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" /> 
-
-    </body>
-</html>
+        <link rel="stylesheet" href="{% static 'angular-frontend/styles.css' %}" />
+        </body>
+    </html>
