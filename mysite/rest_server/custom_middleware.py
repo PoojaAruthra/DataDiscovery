@@ -11,18 +11,18 @@ class MyAuthMiddleware:
         self.get_response = get_response
  
     def __call__(self, request):
-        if 'jwt_token' in request.session:
-            jwt_token = request.session.get('jwt_token')
-            print("session called")
-        else:
-            jwt_token = self.get_jwt_token(request)
-            request.session['jwt_token'] = jwt_token
+        # if 'jwt_token' in request.session:
+        #     jwt_token = request.session.get('jwt_token')
+        #     print("session called")
+        # else:
+        jwt_token = self.get_jwt_token(request)
+            # request.session['jwt_token'] = jwt_token
         if jwt_token:
-            if 'user_details' in request.session:
-                user_details = request.session.get('user_details')
-            else:
-                user_details = self.decode_jwt_token(jwt_token)
-                request.session['user_details'] = user_details
+            # if 'user_details' in request.session:
+            #     user_details = request.session.get('user_details')
+            # else:
+            user_details = self.decode_jwt_token(jwt_token)
+                # request.session['user_details'] = user_details
 
             user= User.objects.get(email=user_details['email'])
             print(user)
