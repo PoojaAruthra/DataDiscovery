@@ -11,8 +11,8 @@
     {% if request.user.is_authenticated %}
     <body>
         <script type="text/javascript">
-            var userGivenName = request.user.username;
-            var userFamilyName = request.user.username;
+            var userGivenName = "{{user.given_name}}";
+            var userFamilyName = "{{user.family_name}}";
             var userIsStaff = "{{user.is_staff}}";
         </script>
         <app-root></app-root>
