@@ -75,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'corsheaders.middleware.CorsMiddleware',
+    'rest_server.custom_middleware.MyAuthMiddleware',    
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -236,7 +237,7 @@ AUTHENTICATION_BACKENDS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
     #     'mozilla_django_oidc.contrib.drf.OIDCAuthentication',
-    #     'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ]
 }
 
